@@ -43,9 +43,9 @@ $error_messages = [
     'empty'       => 'Los campos usuario y contraseña son obligatorios.',
     'spaces'      => 'No se permiten espacios en ningún campo.',
     'pass_format' => 'La contraseña debe contener letras (mayúscula incluida) y números.',
-    'captcha'     => 'Respuesta del CAPTCHA incorrecta. Inténtalo de nuevo.',
+    'captcha'     => 'CAPTCHA incorrecto. Intentos restantes: ' . $rem_att . '.',
     'invalid'     => 'Credenciales incorrectas. Intentos restantes: ' . $rem_att . '.',
-    'locked'      => 'Cuenta bloqueada por ' . $remaining . ' segundos.',
+    'locked'      => 'Demasiados intentos fallidos. Bloqueado por 2 minutos.',
 ];
 
 // ── Generar CAPTCHA si no existe en sesión ──────────────────

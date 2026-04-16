@@ -5,7 +5,7 @@
 
 // Reglas de validación
 define('MAX_ATTEMPTS',  3);    // intentos antes del bloqueo
-define('LOCK_SECONDS',  60);   // segundos de bloqueo
+define('LOCK_SECONDS',  120);  // segundos de bloqueo (2 minutos)
 
 // Ruta al archivo de usuarios
 define('USERS_FILE', __DIR__ . '/users.json');

@@ -54,10 +54,20 @@ if (!preg_match('/[a-zA-Z]/', $password) || !preg_match('/[0-9]/', $password) ||
 // ── Verificar CAPTCHA ───────────────────────────────────────
 $captcha_answer = isset($_POST['captcha_answer']) ? (int)$_POST['captcha_answer'] : null;
 if ($captcha_answer === null || !isset($_SESSION['captcha_result']) || $captcha_answer !== $_SESSION['captcha_result']) {
-    header('Location: index.php?error=captcha');
+    // Captcha incorrecto cuenta como intento fallido
+    $_SESSION['attempts']++;
+    unset($_SESSION['captcha_result'], $_SESSION['captcha_a'], $_SESSION['captcha_b']);
+
+    if ($_SESSION['attempts'] >= MAX_ATTEMPTS) {
+        $_SESSION['locked_at'] = time();
+        header('Location: index.php?error=locked&remaining=' . LOCK_SECONDS);
+    } else {
+        $remaining_attempts = MAX_ATTEMPTS - $_SESSION['attempts'];
+        header('Location: index.php?error=captcha&attempts=' . $_SESSION['attempts'] . '&remaining_attempts=' . $remaining_attempts);
+    }
     exit;
 }
-// Regenerar CAPTCHA tras cada intento
+// Regenerar CAPTCHA tras cada intento exitoso
 unset($_SESSION['captcha_result'], $_SESSION['captcha_a'], $_SESSION['captcha_b']);
 
 // ── Verificar credenciales contra JSON ──────────────────────
