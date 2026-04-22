@@ -1,0 +1,15 @@
+[
+    {
+        "usuario_id": 1,
+        "libro_id": 1,
+        "fecha_prestamo": "2026-04-22",
+        "fecha_devolucion_esperada": "2026-05-07",
+        "fecha_devolucion_real": "2026-04-22",
+        "estado": "devuelto",
+        "observaciones": "",
+        "id": 1,
+        "created_at": "2026-04-22 16:53:33",
+        "estado_libro_devuelto": "dañado",
+        "notas_devolucion": ""
+    }
+]

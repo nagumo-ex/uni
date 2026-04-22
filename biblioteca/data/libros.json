@@ -1,0 +1,15 @@
+[
+    {
+        "titulo": "la divina comedia",
+        "autor": "santi",
+        "isbn": "324543",
+        "editorial": "la litoral",
+        "anio": "1999",
+        "categoria": "Literatura",
+        "cantidad": 50,
+        "disponibles": 50,
+        "descripcion": "",
+        "id": 1,
+        "created_at": "2026-04-22 16:53:19"
+    }
+]
